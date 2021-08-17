@@ -8,7 +8,7 @@ function App() {
   const [name, setName] = useState("");
   const [editable, setEditable] = useState(false)
   const [list, setList] = useState([]);
-  const [edit, setEdit] = useState(null)
+  const [editId, setEditId] = useState(null)
   const [alert, setAlert] = useState({show:true, msg: "", type:"",bg:""})
 
   const handleSubmit = (e) =>{
@@ -18,8 +18,16 @@ function App() {
       showAlert(true,"Please Enter Your Item", "danger", "success")
     }
     else if(name && editable){
+      setList(list.map(item=> {
+        if(item.id === editId){
+          return {...item,title:name}
+        }
+        return item
+      }))
+      setName("");
+      setEditId(null);
+      setEditable(false)
       showAlert(true,"Item Edditting","warning","danger")
-      // deal with edit
     } 
     else{
       showAlert(true, "Your Item Added", "dark", "success");
@@ -40,6 +48,12 @@ function App() {
     showAlert(true,"Item Removed","danger","dark")
     setList(list.filter(item => item.id !== id))
   }
+  const editItem = (id)=>{
+    const specificItem = list.find((item)=>item.id === id);
+    setEditable(true);
+    setEditId(id);
+    setName(specificItem.title)
+  }
   return (
     <>
       <section className="container mt-5 ">
@@ -55,7 +69,7 @@ function App() {
             <div className="input-group justify-content-center mb-2 w-75 mx-auto">
               <input
                 type="text"
-                className="form-control px-1 bg-light outline-0"
+                className="form-control px-4 bg-light outline-0"
                 placeholder="e.g eggs"
                 value={name}
                 onChange={(e) => {
@@ -73,7 +87,7 @@ function App() {
           </form>
           {list.length > 0 && (
             <div className="text-center">
-              <List items={list} removeItem={removeItem} />
+              <List items={list} removeItem={removeItem} editItem={editItem}   />
               <button
                 onClick={clearItems}
                 className=" text-danger border-0"
@@ -89,4 +103,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
