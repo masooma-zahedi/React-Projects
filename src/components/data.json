@@ -1,0 +1,29 @@
+[
+    {
+        "IdentityNumber": "21907141860",
+        "AppointmentDate": "2021-11-30",
+        "Time": "15:45",
+        "Name": "Ali",
+        "BirthDate": "2017-02-07",
+        "Email": "ninmaili@gmail.com",
+        "details": "perspiciatis non tempore, nulla odio repellendus eaque iure"
+    },
+    {
+        "IdentityNumber": "12906141850",
+        "AppointmentDate": "2021-11-21",
+        "Time": "09:15",
+        "Name": "Veli",
+        "BirthDate": "2017-02-07",
+        "Email": "veli_nmaili@gmail.com",
+        "details":" consectetur adipisicing elit. Quaerat provident"
+    },
+    {
+        "IdentityNumber": "22605131860",
+        "AppointmentDate": "2021-11-20",
+        "Time": "10:45",
+        "Name": "Timucin",
+        "BirthDate": "2017-02-07",
+        "Email": "timucin_inmaili@gmail.com",
+        "details":"ipsum dolor sit amet consectetur adipisicing"
+    }
+]
