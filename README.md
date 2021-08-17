@@ -1,6 +1,3 @@
-#### Idea
-
-
 
 #### React Icons
 
