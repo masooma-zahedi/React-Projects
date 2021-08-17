@@ -4,10 +4,18 @@ import Alert from './Alert';
 import Bootstrap from "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import { nanoid } from 'nanoid';
 
+const getLocalStorage = () => {
+  const list = localStorage.getItem("list");
+  if(list){
+    return JSON.parse(localStorage.getItem('list'))
+  } else {
+    return []
+  }
+}
 function App() {
   const [name, setName] = useState("");
   const [editable, setEditable] = useState(false)
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(getLocalStorage());
   const [editId, setEditId] = useState(null)
   const [alert, setAlert] = useState({show:true, msg: "", type:"",bg:""})
 
@@ -54,6 +62,10 @@ function App() {
     setEditId(id);
     setName(specificItem.title)
   }
+
+  useEffect(()=>{
+    localStorage.setItem("list", JSON.stringify(list))
+  },[list])
   return (
     <>
       <section className="container mt-5 ">
