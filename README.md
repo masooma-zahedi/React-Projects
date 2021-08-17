@@ -1,5 +1,5 @@
 #### bootstrap 
-npm instals bootstrap
+npm install bootstrap
 
 #### React Icons
 
